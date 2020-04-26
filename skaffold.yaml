@@ -1,4 +1,4 @@
-apiVersion: skaffold/v2alpha4
+apiVersion: skaffold/v2beta1
 kind: Config
 profiles:
 - name: test-cronjob
@@ -14,4 +14,4 @@ profiles:
         remote: true
         wait: true
         valuesFiles:
-          - "values.yaml"
+          - values.yaml

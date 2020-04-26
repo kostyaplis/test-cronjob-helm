@@ -35,6 +35,11 @@ spec:
               resources:
                 {{- toYaml . | trim | nindent 16 }}
               {{- end }}
+            env:
+            {{- range $name, $value := .env }}
+            - name: {{ $name | quote }}
+              value: {{ $value | quote }}
+            {{- end }}
           restartPolicy: OnFailure
           {{- with $.Values.imagePullSecrets }}
           imagePullSecrets:
