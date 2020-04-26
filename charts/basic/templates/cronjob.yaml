@@ -31,38 +31,6 @@ spec:
               imagePullPolicy: {{ $.Values.image.pullPolicy }}
               command:
               {{- toYaml .command | trim | nindent 16 }}
-              # {{- if or ($.Values.app.env) (.env) }}
-              # env:
-              #   - name: PROMETHEUS_EXPORTER_REQUEST_STATS
-              #     value: "false"
-              #   - name: PROMETHEUS_EXPORTER_PROCESS_STATS
-              #     value: "false"
-              #   {{- range $name, $value := $.Values.app.env }}
-              #   - name: {{ $name | quote }}
-              #     value: {{ $value | quote }}
-              #   {{- end }}
-              #   {{- range $name, $value := .env }}
-              #   - name: {{ $name | quote }}
-              #     value: {{ $value | quote }}
-              #   {{- end }}
-              # {{- end }}
-              # {{- if or ($.Values.app.envFromSecrets) ($.Values.app.envFromConfigMaps) }}
-              # envFrom:
-              #   {{- range $.Values.app.envFromConfigMaps }}
-              #   - configMapRef:
-              #       name: {{ . | quote }}
-              #   {{- end }}
-              #   {{- range $.Values.app.envFromSecrets }}
-              #   - secretRef:
-              #       name: {{ . | quote }}
-              #   {{- end }}
-              # {{- end }}
-              # volumeMounts:
-              #   {{- if $.Values.app.settingsYmlSecret.enabled }}
-              #   - mountPath: {{ $.Values.app.home }}/config/{{ $.Values.app.settingsYmlSecret.key }}
-              #     name: settings-yml-volume
-              #     subPath: {{ $.Values.app.settingsYmlSecret.key }}
-              #   {{- end }}
               {{- with .resources }}
               resources:
                 {{- toYaml . | trim | nindent 16 }}
@@ -72,15 +40,6 @@ spec:
           imagePullSecrets:
             {{- toYaml . | trim | nindent 12}}
           {{- end }}
-          # volumes:
-          #   {{- if $.Values.app.settingsYmlSecret.enabled }}
-          #   - name: settings-yml-volume
-          #     secret:
-          #       secretName: {{ $.Values.app.settingsYmlSecret.name | quote }}
-          #       items:
-          #         - key: {{ $.Values.app.settingsYmlSecret.key | quote }}
-          #           path: {{ $.Values.app.settingsYmlSecret.key | quote }}
-          #   {{- end }}
           {{- with $.Values.nodeSelector }}
           nodeSelector:
             {{- toYaml . | nindent 12 }}
