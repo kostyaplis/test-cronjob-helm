@@ -3,6 +3,15 @@ entries:
   basic:
   - apiVersion: v1
     appVersion: "1.0"
+    created: "2020-04-26T05:33:14.34411859Z"
+    description: A Helm chart for Kubernetes
+    digest: f8c83d350a5f98e53aff03ee38d60aaf917a277e7a4ffbfab1049083f1815815
+    name: basic
+    urls:
+    - https://github.com/kostyaplis/test-cronjob-helm/releases/download/basic-0.0.4/basic-0.0.4.tgz
+    version: 0.0.4
+  - apiVersion: v1
+    appVersion: "1.0"
     created: "2020-04-26T05:23:12.212237299Z"
     description: A Helm chart for Kubernetes
     digest: 51fcc7a79a63895b740f55d9ac7919e52563d9e497260d460f2def6fdb953733
