@@ -10,8 +10,9 @@ profiles:
       releases:
       - name: cronjob
         namespace: default
-        chartPath: test-cronjob/basic
-        remote: true
+        chartPath: ./charts/basic
+        #chartPath: test-cronjob/basic
+        #remote: true
         wait: true
         valuesFiles:
           - values.yaml
