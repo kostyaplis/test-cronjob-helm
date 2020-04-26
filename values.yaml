@@ -1,0 +1,34 @@
+cronjobs:
+- command:
+  - bash
+  - -c
+  - |
+    sleep 10s
+  failedJobsHistoryLimit: 1
+  successfulJobsHistoryLimit: 1
+  name: super-long-resource-name-that-exceeds-63-characters-and-should-fail
+  schedule: '* * * * *'
+  resources:
+    limits:
+      cpu: 100m
+      memory: 128Mi
+    requests:
+      cpu: 100m
+      memory: 128Mi
+
+- command:
+  - bash
+  - -c
+  - |
+    sleep 10s
+  failedJobsHistoryLimit: 1
+  successfulJobsHistoryLimit: 1
+  name: another-cronjob-name
+  schedule: '* * * * *'
+  resources:
+    limits:
+      cpu: 100m
+      memory: 128Mi
+    requests:
+      cpu: 100m
+      memory: 128Mi

@@ -1,0 +1,17 @@
+apiVersion: skaffold/v2alpha4
+kind: Config
+profiles:
+- name: test-cronjob
+  deploy:
+    helm:
+      flags:
+        install: ['--atomic']
+        upgrade: ['--atomic']
+      releases:
+      - name: cronjob
+        namespace: default
+        chartPath: test-cronjob/basic
+        remote: true
+        wait: true
+        valuesFiles:
+          - "values.yaml"
